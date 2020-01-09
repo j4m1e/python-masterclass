@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Windows Python Virtual Environment
+Include/
+Lib/
+Scripts/
+tcl/
