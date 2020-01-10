@@ -96,3 +96,35 @@ for number in range(10):
     # greater than or equal to 5 and less than or equal to 9
     if 5 <= number <= 9:
         print(f"{number}")
+
+# Break / continue / pass - control the flow in a while or a for loop. Interrupt or restart the execution
+# under certain conditions
+# Break - terminate the loop that it resides within
+for number in range(10):
+    if number == 7:
+        break # stop the execution of the loop right here & quit the for loop
+    print(f"{number}")
+# nested loops
+list1 = [4, 5, 6]
+list2 = [10, 20, 30]
+for i in list1:
+    for j in list2:
+        if j == 20:
+            # inner loop break not outer as well
+            break
+        print(f"{i * j}")
+    print(f"Outside the nested loop")
+# Continue - ignore the rest of the code below for the current iteration, goes to the top of the loop and 
+# starts the next iteration
+list1 = [4, 5, 6]
+list2 = [10, 20, 30]
+for i in list1:
+    for j in list2:
+        if j == 20:
+            # ignores the rest of the code in the inner loop only for the current iteration
+            continue
+        print(f"{i * j}")
+    print(f"Outside the nested loop")
+# Pass - do nothing. If this was missing i.e. pass then an error would be thrown - unexpected EOF while parsing
+for i in range(10):
+    pass
