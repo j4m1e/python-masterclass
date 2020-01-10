@@ -128,3 +128,52 @@ for i in list1:
 # Pass - do nothing. If this was missing i.e. pass then an error would be thrown - unexpected EOF while parsing
 for i in range(10):
     pass
+
+# Try / except / else / finally - handling exception errors
+for i in range(5):
+    try:
+        # code to check for exceptions
+        print(f"{i / 0}")
+    # how to handle the exception    
+    except ZeroDivisionError as e:
+        print(f"{e}, --> division by zero is not allowed.")
+
+# this will throw the standard error as there is no provision for the type of exception that has occurred
+"""
+for i in range(5):
+    try:
+        print(f"{i / 0}")
+    except NameError:
+        print(f"You have a name error in your code")
+"""
+# when no error occurs
+for i in range(5):
+    try:
+        print(f"{i / 1}")
+    except ZeroDivisionError:
+        print(f"Division by zero is just wrong")
+    print(f"The rest of the code...")
+# more comprehensive -  recommended
+for i in range(5):
+    try:
+        print(f"{i / 1}")
+    except ZeroDivisionError:
+        print(f"Divsion by zero is just wrong")
+    except NameError:
+        print(f"Name error detected")
+    except ValueError:
+        print(f"Wrong value")
+# else
+try:
+    print(f"{4 / 2}")
+except NameError:
+    print(f"Name error!")
+else:
+    print(f"No exceptions were raised by the try")
+# finally
+try:
+    print(f"{4 / 2}")
+except NameError:
+    print(f"Name error!")
+finally:
+    print(f"No exceptions were raised by the try")
