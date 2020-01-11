@@ -82,7 +82,7 @@ def mySixthFunction(x, *args):
 # call the function
 mySixthFunction("Hello")
 mySixthFunction("Hello", 100, 200)
-# keyword parameters will be a list not a tuple
+# keyword parameters will be a dictionary not a tuple
 def mySeventhFunction(x, **kwargs):
     print(f"{x}")
     print(f"{kwargs}")
@@ -93,3 +93,49 @@ def mySeventhFunction(x, **kwargs):
 # call the function
 mySeventhFunction("Hello")
 mySeventhFunction("Hello", y = 100, z = 200)
+# Namespaces. This is a space holding some names. This is variables, functions or classes that are created
+# This is a container holding the names that are defined where each name is associated with a namespace in 
+# which it is defined. This way the same name can be defined in different namespaces. 
+# There are 3 types of namespaces: built-in, global and local. The built-in namespace contains python's 
+# built-in functions e.g. len(), max() and range(). The global namespace is where you define variables, 
+# functions etc that have been imported into the program whereas the local namespace is used for names
+# within a particular function  
+print(f"NAMESPACES")
+# built-in namespace
+print(f"Built-in functions list() & range() which belong to the built-in namespace")
+print(f"{list(range(10))}")
+# global namespace
+myVar = 10
+print(f"Global variable which belongs to the global namespace")
+print(f"{myVar}")
+# local namespace
+print(f"Local variable which belongs to the local namespace")
+# If myVar2 = 10 is after the print statement then an error will be thrown. UnboundLocalError: local
+# variable 'myVar2' referenced before assignment
+def myVarFunction():
+    myVar2 = 10 
+    print(f"{myVar2}")
+# call the function
+myVarFunction()
+# print(f"{myVar2 * 10}") would throw a NameError as myVar2 is not a global variable as it is local within the 
+# function. Below using a global variable of the same name which will not throw a NameError
+myVar2 = 20
+print(f"{myVar2 * 10}")
+# Use a global variable inside the local namespace of a function using global
+print(f"Global variable used inside the local namespace of a function")
+myVar3 = 5
+def myVarFunction2():
+    global myVar3
+    print(f"{myVar3}")
+# call the function
+myVarFunction2()
+# use the return statement with local variable so it can be accessed in the global namespace
+print(f"Access a local variable in the global namespace using return")
+def myVarFunction3():
+    myVar4 = 10
+    print(f"{myVar4}")
+    return myVar4
+# create a global variable and call the function
+result = myVarFunction3()
+print(f"{result * 10}")
+
