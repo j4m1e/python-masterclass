@@ -173,3 +173,13 @@ import myModule2
 print(f"Variable (myVar) from myModule2: {myModule2.myVar}")
 # call the function from myModule2
 myModule2.myFunction()
+# How to find out how a module works or what functions, classes or variables are available to you
+# use help to find out how to use the module
+print(f"help() and dir() functions")
+print(f"{help(sys)}")
+# what names, functions, attributes are part of specified module namespace
+print(f"{dir(sys)}")
+# install a non standard module on windows
+# 'python -m pip install openpyxl'
+# to upgrade pip on windoes
+# 'python -m pip install --upgrade pip'
