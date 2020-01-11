@@ -181,5 +181,5 @@ print(f"{help(sys)}")
 print(f"{dir(sys)}")
 # install a non standard module on windows
 # 'python -m pip install openpyxl'
-# to upgrade pip on windoes
+# to upgrade pip on windows
 # 'python -m pip install --upgrade pip'
