@@ -138,4 +138,38 @@ def myVarFunction3():
 # create a global variable and call the function
 result = myVarFunction3()
 print(f"{result * 10}")
-
+# Modules. Just a python file that includes variables, functions and classes. Logically organise
+# code. 
+print(f"MODULES")
+import math
+print(f"functions available in the math module")
+print(f"{dir(math)}\n")
+# generally use the name of the module and then . to access the function
+print(f"The value of PI is {math.pi}\n")
+# user defined module
+print(f"USER DEFINED MODULE")
+# 1st way
+# because there is a print statement within myModule this will get executed once on import
+# this could be used to 'from myModule import *' but not recommended as it overloads the global namespace
+# Python searches the current directory for the module and then the python path
+# this can be shown by using the sys module as below
+import sys
+print(f"Python path: {sys.path}\n")
+import myModule
+# all the functions and variables are now available for use in this python code (global namespace)
+# to prove that code is only executed once from the import
+import myModule
+# print out the varible from myModule
+print(f"Variable (myVar) from myModule: {myModule.myVar}") 
+# call the function from myModule
+myModule.myFunction()
+# 2nd way
+# import some variables from the module into the global namespace as a different variable name
+from myModule import myVar as myVar99
+print(f"myVar99: {myVar99}") 
+# importing another module which stops the executing of code on import
+print(f"Import myModule2..")
+import myModule2
+print(f"Variable (myVar) from myModule2: {myModule2.myVar}")
+# call the function from myModule2
+myModule2.myFunction()
