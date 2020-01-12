@@ -59,3 +59,33 @@ for line in myFile.readlines():
 # another way to avoid this is error is to do the following which is to use a raw string literal (r)
 # this means that all \ in the string is treated as a literal character and not a special escape one
 # f = open(r"C:\Users\ted\Desktop\new\test.txt", "r")
+print(f"OPENING A FILE FOR WRITING ONLY")
+# the w access mode also creates the file for writing if doesn't already exist & overwrites the file
+# if it does exist
+newFile = open("newfile.txt", "w")
+# use the write method to add contents to the file
+newFile.write("I like Python!\nDo you?")
+# in the interpreter this will return 22 which is the number of characters including new line etc 
+# as the file is open writing the read method cannot be used
+# if the file is not closed, then the contents will not be written to the file
+newFile.close()
+# if the file is opened again for writing and new contents written it will overwrite the existing
+# use the writeline method to add contents to the file
+newFile2 = open("newfile2.txt", "w")
+# a tople could also be used newFile2.writelines(("Cisco1", "Juniper2", "HP1"))
+newFile2.writelines(["Cisco", "Juniper", "HP"])
+newFile2.close()
+print(f"APPENDING TO A FILE")
+# append adds data to the end of the file if it exists or creates the file if it doesnt exist
+newFile3 = open("newfile2.txt", "a")
+newFile3.write("this string was appended")
+newFile3.close()
+# the access modes to allow for the reading of contents immediately after writing are r+, w+ and a+
+# use the w+ access mode
+newFile4 = open("newfile3.txt", "w+")
+newFile4.write("A chunk of text")
+# go back to the beginning of the file
+newFile4.seek(0)
+print(f"Contents from file using the w+ access mode")
+print(f"{newFile4.read()}")
+newFile4.close()
