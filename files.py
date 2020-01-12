@@ -82,10 +82,21 @@ newFile3.write("this string was appended")
 newFile3.close()
 # the access modes to allow for the reading of contents immediately after writing are r+, w+ and a+
 # use the w+ access mode
-newFile4 = open("newfile3.txt", "w+")
+newFile4 = open("newfile4.txt", "w+")
 newFile4.write("A chunk of text")
 # go back to the beginning of the file
 newFile4.seek(0)
 print(f"Contents from file using the w+ access mode")
 print(f"{newFile4.read()}")
 newFile4.close()
+print(f"CLOSING FILES")
+# once a file is opened it is important to close it so that other OS processes can perform actions on it
+# a file object attribute can be used to check if a file is closed
+print(f"Is newfile4.txt closed: {newFile4.closed}")
+# with .. as statement can be used to close a file, this was introducted in Python 2.5. This means that 
+# the file does not need to be closed manually using the close method instead the file is closed 
+# automatically. With the w access mode it will create a new file too
+# the as keyword acts as an assignment operator for the file object (f)
+with open("newfile5.txt", "w") as f:
+    f.write("Hello Python!")
+print(f"Checking that newfile5.txt has been closed: {f.closed}")
