@@ -100,3 +100,48 @@ print(f"Is newfile4.txt closed: {newFile4.closed}")
 with open("newfile5.txt", "w") as f:
     f.write("Hello Python!")
 print(f"Checking that newfile5.txt has been closed: {f.closed}")
+print(f"DELETE THE CONTENTS OF A TEXT FILE")
+# delete the contents of a text file either completely or partially
+# open file for reading & check it is open
+file = open("newfile6.txt")
+print(f"{file}")
+print(f"contents of newfile6.txt")
+print(f"{file.read()}")
+# to find the length of the file the cursor needs to be reset as the file has been read already
+file.seek(0)
+print(f"Number of characters in newfile6.txt is {len(file.read())}")
+# to delete the contents of a file use the method truncate and the access mode must be write
+file.close()
+# open the file for reading and writing with the r+ access mode
+file = open("newfile6.txt", "r+")
+# delete all the contents - this method will return 0 as all characters have been deleted
+file.truncate()
+print(f"The number of characters in newfile6.txt, after the delete is {len(file.read())}")
+file.close()
+# add the contents back into the file 
+file = open("newfile6.txt", "r+")
+file.write("Python is the greatest programming language of all time. Do you agree? :)")
+file.seek(0)
+print(f"Newfile6.txt is {len(file.read())} characters long and contains the below")
+file.seek(0)
+print(f"{file.read()}")
+file.close()
+# delete partially the contents of the file i.e. leave Python is (10 characters)
+# open the file for reading and writing with the r+ access mode
+file = open("newfile6.txt", "r+")
+# leave only 10 characters in the file
+file.truncate(10)
+file.seek(0)
+print(f"Newfile6.txt is {len(file.read())} characters long and contains the below")
+file.seek(0)
+print(f"{file.read()}")
+file.close()
+
+# add the contents back into the file 
+file = open("newfile6.txt", "r+")
+file.write("Python is the greatest programming language of all time. Do you agree? :)")
+file.seek(0)
+print(f"Newfile6.txt is {len(file.read())} characters long and contains the below")
+file.seek(0)
+print(f"{file.read()}")
+file.close()
